@@ -1,0 +1,98 @@
+Bug #1:
+    Name: Adam Shore
+    Date: 3/20/2023
+    Bug: IDT was not compiling correctly
+    Fix: needed to create a seperate exception handler file instead of cramming it all into the idt.h file
+
+Bug #2:
+    Name: Adam Shore
+    Date: 3/20/2023
+    Bug: IDT was not passing the first test case correctly after we finished writing it
+    Fix: we needed to write the exception handler for IDT vector 9. We did not understand 
+         initially that there is a difference between reserved (for us) and reserved for Intel
+
+Bug #3:
+    Name: Adam Shore
+    Date: 3/20/2023
+    Bug: PIC functions not working properly
+    Fix: we had the port and destination flipped when calling outb. These are sometimes flipped 
+         in different versions but for ours we had it formatted the incorrect way.
+CP2:
+
+Bug #1:
+    Name: Matthew Seltzer
+    Date: 3/27/2023
+    Bug: Terminal enter key doesn't work on buffer fill
+    Fix: Added a newline when newline character registered on buffer fill
+
+Bug #2:
+    Name: Matthew Seltzer
+    Date: 3/27/2023
+    Bug: Terminal write doesn't print across multiple lines
+    Fix: Added a check in putc in lib.c if at end of line to print on next line
+
+Bug #3:
+    Name: Jeeva Murugan
+    Date: 3/27/2023
+    Bug: File system page faults on read_data
+    Fix: Cast on inode address was missing () causing the pointer addition to result in the wrong value
+
+Bug #4:
+    Name: Adam Shore
+    Date: 3/27/2023
+    Bug: RTC write fails to change frequency
+    Fix: Algorithm to determine rate from passed in frequency had incorrect logic, switched to lookup table for rate
+
+Bug #5
+    Name: Ajay Jayaraman
+    Date: 3/28/2023
+    Bug: Pointers initialized incorrectly and strncmp pointer arguments differ in signedness
+    Fix: Cast the appropriate pointers as int8_t * or respective types 
+
+Bug #6
+    Name: Adam Shore
+    Date: 4/10/2023
+    Bug: read_data was not working for executable files
+    Fix: replaced all "strncpy" calls with "memcpy"
+
+Bug #7
+    Name: Adam Shore
+    Date: 4/10/2023
+    Bug: page faulting whenever execute runs
+    Fix: Needed to decrement eax in the system call handler
+
+Bug #8
+    Name: Adam Shore
+    Date: 4/10/2023
+    Bug: page faulting whenever read or write is called
+    Fix: needed to correctly call the read/write function
+
+Bug #9
+    Name: Matthew Seltzer
+    Date: 4/17/2023
+    Bug: page faulting on vidmap
+    Fix: needed to add a nullcheck
+
+Bug #10
+    Name: Matthew Seltzer
+    Date: 4/17/2023
+    Bug: fish file read fails
+    Fix: instead of comparing file pos to nbytes in dir_read, needed to compare file pos to length from inode
+
+Bug #11
+    Name: Matthew Seltzer
+    Date: 4/30/2023
+    Bug: Couldn't type after terminal switch
+    Fix: We added a call to send_eoi() which fixed this
+
+Bug #12
+    Name: Matthew Seltzer
+    Date: 4/30/2023
+    Bug: Terminal 3 displays random characters
+    Fix: We had to change the memory locations for the 3 terminal pages    
+
+Bug #13
+    Name: Ajay Jayaraman
+    Date: 4/30/2023
+    Bug: PIT was not resulting in any interrupts
+    Fix: pit_init did not have the PIC IRQ correctly mapped

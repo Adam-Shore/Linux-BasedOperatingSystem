@@ -1,0 +1,22 @@
+make: Warning: File `Makefile.dep' has modification time 5.6 s in the future
+pagingasm.S:26:5: warning: no newline at end of file
+filesystem.c: In function ‘initFileSystem’:
+filesystem.c:20: warning: assignment from incompatible pointer type
+filesystem.c: In function ‘read_dentry_by_name’:
+filesystem.c:29: warning: pointer targets in passing argument 1 of ‘strncmp’ differ in signedness
+filesystem.c:29: warning: pointer targets in passing argument 2 of ‘strncmp’ differ in signedness
+filesystem.c:30: warning: pointer targets in passing argument 1 of ‘strcpy’ differ in signedness
+filesystem.c:30: warning: pointer targets in passing argument 2 of ‘strcpy’ differ in signedness
+filesystem.c: In function ‘read_dentry_by_index’:
+filesystem.c:43: warning: pointer targets in passing argument 1 of ‘strcpy’ differ in signedness
+filesystem.c:43: warning: pointer targets in passing argument 2 of ‘strcpy’ differ in signedness
+filesystem.c: In function ‘read_data’:
+filesystem.c:56: error: incompatible types in initialization
+filesystem.c:58: error: request for member ‘length’ in something not a structure or union
+filesystem.c:66: error: request for member ‘data_block’ in something not a structure or union
+filesystem.c:88: warning: pointer targets in passing argument 1 of ‘strncpy’ differ in signedness
+filesystem.c:88: warning: pointer targets in passing argument 2 of ‘strncpy’ differ in signedness
+filesystem.c:91: error: request for member ‘data_block’ in something not a structure or union
+filesystem.c:99: warning: pointer targets in passing argument 1 of ‘strncpy’ differ in signedness
+filesystem.c:99: warning: pointer targets in passing argument 2 of ‘strncpy’ differ in signedness
+make: *** [filesystem.o] Error 1

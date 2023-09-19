@@ -1,0 +1,25 @@
+boot.o: boot.S multiboot.h x86_desc.h types.h
+exceptionASM.o: exceptionASM.S exceptionASM.h x86_desc.h types.h
+flushtlbASM.o: flushtlbASM.S flushtlbASM.h
+pagingasm.o: pagingasm.S
+systemcall.o: systemcall.S systemcall.h x86_desc.h types.h
+x86_desc.o: x86_desc.S x86_desc.h types.h
+exceptionProblems.o: exceptionProblems.c exceptionProblems.h lib.h \
+  types.h
+filesystem.o: filesystem.c filesystem.h types.h systemcall.h x86_desc.h \
+  lib.h
+i8259.o: i8259.c i8259.h types.h lib.h
+idt.o: idt.c idt.h x86_desc.h types.h exceptionASM.h systemcall.h
+kernel.o: kernel.c multiboot.h types.h x86_desc.h lib.h i8259.h debug.h \
+  tests.h paging.h pagingasm.h idt.h exceptionASM.h rtc.h keyboard.h \
+  filesystem.h systemcall.h
+keyboard.o: keyboard.c keyboard.h x86_desc.h types.h lib.h rtc.h i8259.h \
+  exceptionASM.h
+lib.o: lib.c lib.h types.h
+paging.o: paging.c paging.h x86_desc.h types.h lib.h
+rtc.o: rtc.c rtc.h x86_desc.h types.h i8259.h lib.h exceptionASM.h
+syscall_functions.o: syscall_functions.c syscall_functions.h lib.h \
+  types.h filesystem.h systemcall.h x86_desc.h rtc.h i8259.h \
+  exceptionASM.h keyboard.h paging.h flushtlbASM.h
+tests.o: tests.c tests.h x86_desc.h types.h lib.h rtc.h i8259.h \
+  exceptionASM.h filesystem.h systemcall.h keyboard.h
